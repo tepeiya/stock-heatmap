@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>推特股票热图多源监控</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#0d1117; color:#c9d1d9; min-height:100vh; }
+.container { max-width:1500px; margin:0 auto; padding:12px; }
+
+/* Header */
+.header { text-align:center; padding:16px 0 8px; }
+.header h1 { font-size:1.4em; }
+.header .sub { color:#8b949e; font-size:0.78em; margin-top:2px; }
+
+/* Source Selector */
+.source-bar { display:flex; gap:8px; justify-content:center; margin:10px 0; flex-wrap:wrap; }
+.source-btn { padding:10px 18px; border:2px solid #30363d; border-radius:10px; background:#161b22; color:#c9d1d9; cursor:pointer; font-size:0.85em; font-weight:600; transition:all 0.2s; position:relative; min-width:140px; text-align:center; }
+.source-btn .count { font-size:0.7em; font-weight:400; opacity:0.7; }
+.source-btn.active { background:#1c2333; transform:translateY(-1px); }
+.source-btn:hover { border-color:#58a6ff; }
+.source-btn.overlap-btn { border-style:dashed; }
+
+/* Stats */
+.stats-bar { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:8px 0; }
+.stat-card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:8px 14px; text-align:center; }
+.stat-card .num { font-size:1.2em; font-weight:700; }
+.stat-card .lbl { font-size:0.7em; color:#8b949e; }
+
+/* Tabs */
+.tabs { display:flex; gap:6px; margin:10px 0; flex-wrap:wrap; justify-content:center; }
+.tab-btn { padding:6px 16px; border:1px solid #30363d; background:#161b22; color:#c9d1d9; border-radius:6px; cursor:pointer; font-size:0.8em; transition:all 0.2s; }
+.tab-btn.active { background:#1f6feb; border-color:#1f6feb; }
+.tab-btn:hover { border-color:#58a6ff; }
+.panel { display:none; } .panel.active { display:block; }
+
+/* Heatmap Grid */
+.heatmap-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:10px; margin-top:8px; }
+.heatmap-card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px; cursor:pointer; transition:all 0.2s; position:relative; overflow:hidden; }
+.heatmap-card:hover { transform:translateY(-2px); border-color:#58a6ff; box-shadow:0 4px 20px rgba(88,166,255,0.12); }
+.heat-bar { position:absolute; bottom:0; left:0; height:3px; transition:width 0.5s; }
+.heat-card-ticker { font-size:1.1em; font-weight:700; }
+.heat-card-name { font-size:0.7em; color:#8b949e; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.heat-card-sector { display:inline-block; font-size:0.65em; padding:1px 6px; border-radius:8px; margin-top:4px; color:#fff; }
+.heat-card-meta { font-size:0.75em; margin-top:4px; display:flex; justify-content:space-between; }
+.heat-card-preview { font-size:0.68em; color:#8b949e; margin-top:4px; padding-top:4px; border-top:1px solid #21262d; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Network */
+.network-wrap { width:100%; aspect-ratio:16/10; background:#161b22; border:1px solid #30363d; border-radius:8px; position:relative; overflow:hidden; margin-top:8px; }
+.network-wrap svg { width:100%; height:100%; }
+.net-ctrl { position:absolute; top:8px; right:8px; z-index:10; display:flex; gap:4px; }
+.net-ctrl button { padding:4px 10px; border:1px solid #30363d; background:#0d1117; color:#c9d1d9; border-radius:4px; cursor:pointer; font-size:0.7em; }
+.net-ctrl button:hover { background:#1c2333; }
+
+/* Legend */
+.legend { display:flex; flex-wrap:wrap; gap:12px; margin:10px 0; justify-content:center; font-size:0.75em; }
+.legend .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.legend .line { width:18px; height:2px; display:inline-block; vertical-align:middle; }
+
+/* Cloud */
+.cloud-wrap { display:flex; flex-wrap:wrap; gap:5px; justify-content:center; margin:8px 0; padding:12px; }
+.cloud-tag { padding:3px 10px; border-radius:14px; font-weight:600; cursor:pointer; transition:all 0.2s; }
+.cloud-tag:hover { transform:scale(1.1); }
+
+/* Sector */
+.sector-row { display:flex; gap:6px; align-items:center; margin:3px 0; padding:5px 8px; background:#161b22; border-radius:5px; }
+.sector-row .sr-n { width:80px; font-size:0.75em; } .sr-bar { flex:1; height:16px; background:#21262d; border-radius:3px; overflow:hidden; }
+.sr-fill { height:100%; border-radius:3px; transition:width 0.5s; }
+.sr-c { width:30px; text-align:right; font-size:0.7em; color:#8b949e; }
+
+/* Modal */
+.modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:200; justify-content:center; align-items:center; padding:16px; }
+.modal-overlay.show { display:flex; }
+.modal { background:#161b22; border:1px solid #30363d; border-radius:10px; max-width:460px; width:100%; padding:20px; max-height:80vh; overflow-y:auto; }
+.modal h2 { font-size:1.2em; }
+.modal .ms { font-size:0.75em; color:#8b949e; margin-bottom:8px; }
+.modal .md { font-size:0.82em; line-height:1.5; margin:6px 0; }
+.modal .mr { font-size:0.75em; color:#8b949e; margin:4px 0; }
+.modal .close-btn { margin-top:12px; padding:8px; border:1px solid #30363d; background:transparent; color:#c9d1d9; border-radius:5px; cursor:pointer; width:100%; font-size:0.8em; }
+.modal .close-btn:hover { background:#21262d; }
+
+/* Overlap specific */
+.overlap-card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px; cursor:pointer; transition:all 0.2s; position:relative; overflow:hidden; }
+.overlap-card:hover { transform:translateY(-2px); border-color:#58a6ff; }
+.overlap-scores { display:flex; gap:8px; margin-top:4px; }
+.os { flex:1; height:6px; border-radius:3px; }
+.olabel { font-size:0.65em; color:#8b949e; }
+
+/* Tooltip */
+.tt { position:absolute; background:#1c2333; border:1px solid #30363d; border-radius:6px; padding:8px 10px; font-size:0.75em; pointer-events:none; z-index:100; max-width:220px; display:none; box-shadow:0 4px 12px rgba(0,0,0,0.4); }
+
+/* Refresh */
+.refresh-bar { text-align:center; margin:12px 0; }
+.refresh-btn { padding:8px 24px; border:none; background:linear-gradient(135deg,#238636,#2ea043); color:#fff; border-radius:6px; cursor:pointer; font-size:0.85em; font-weight:600; }
+
+/* Update info */
+.update-info { text-align:center; font-size:0.72em; color:#58a6ff; margin:4px 0; }
+
+@media (max-width:600px) {
+  .heatmap-grid { grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:6px; }
+  .network-wrap { aspect-ratio:4/5; }
+  .source-btn { min-width:100px; padding:8px 12px; font-size:0.78em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📊 推文股票热图</h1>
+    <div class="sub">多源监控 • 行业关系网络</div>
+    <div class="update-info" id="updateInfo">加载中...</div>
+  </div>
+
+  <!-- Source selector -->
+  <div class="source-bar" id="sourceBar"></div>
+
+  <!-- Stats -->
+  <div class="stats-bar" id="statsBar"></div>
+
+  <!-- Tabs -->
+  <div class="tabs" id="tabBar"></div>
+
+  <!-- Panels -->
+  <div class="panel active" id="panel-heatmap">
+    <div class="legend" id="legendHeat"></div>
+    <div class="heatmap-grid" id="heatmapGrid"></div>
+  </div>
+  <div class="panel" id="panel-network">
+    <div class="legend" id="legendNet"></div>
+    <div class="network-wrap" id="networkWrap"><div class="net-ctrl"><button onclick="resetNet()">↺ 重置</button><button onclick="toggleNetLabels()">🏷️ 标签</button></div></div>
+  </div>
+  <div class="panel" id="panel-cloud">
+    <div class="cloud-wrap" id="cloudWrap"></div>
+  </div>
+  <div class="panel" id="panel-sectors">
+    <div id="sectorWrap"></div>
+  </div>
+
+  <!-- Overlap panel -->
+  <div class="panel" id="panel-overlap">
+    <div style="text-align:center;margin:8px 0;font-size:0.78em;color:#8b949e" id="overlapDesc"></div>
+    <div class="legend" id="overlapLegend"></div>
+    <div class="heatmap-grid" id="overlapGrid"></div>
+  </div>
+
+  <div class="refresh-bar">
+    <button class="refresh-btn" onclick="location.reload()">🔄 刷新页面</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <h2 id="modalTicker"></h2>
+    <div class="ms" id="modalSector"></div>
+    <div class="md" id="modalDesc"></div>
+    <div id="modalRelations"></div>
+    <div id="modalTweets"></div>
+    <div id="modalSource" class="mr"></div>
+    <button class="close-btn" onclick="closeModal()">关闭</button>
+  </div>
+</div>
+
+<div class="tt" id="tooltip"></div>
+
+<script>// ========== STATE ==========
+const DATA_DIR = 'data';
+let indexData = null;
+let sourceData = {};
+let overlapData = null;
+let currentSource = 'aleabitoreddit';
+let showNetLabels = true;
+let svg = null, simulation = null, gNodes = null, gLinks = null, gLinkLabels = null;
+
+// ========== LOAD ==========
+function init() {
+  var ts = Date.now();
+  fetch(DATA_DIR + '/index.json?_t=' + ts).then(function(r) { return r.json(); }).then(function(idx) {
+    indexData = idx;
+    var sources = idx.sources;
+    var remaining = sources.length;
+    sources.forEach(function(s) {
+      fetch(DATA_DIR + '/' + s.file + '?_t=' + ts).then(function(r2) { return r2.json(); }).then(function(d) {
+        sourceData[s.id] = d;
+        remaining--;
+        if (remaining === 0 && idx.overlap) {
+          fetch(DATA_DIR + '/' + idx.overlap.file + '?_t=' + ts).then(function(r3) { return r3.json(); }).then(function(ov) {
+            overlapData = ov;
+            renderUI();
+          }).catch(function(e) { document.getElementById('updateInfo').textContent = '⚠️ 重叠数据加载失败'; });
+        } else if (remaining === 0) {
+          renderUI();
+        }
+      }).catch(function(e) { document.getElementById('updateInfo').textContent = '⚠️ 数据加载失败: ' + s.id; });
+    });
+  }).catch(function(e) {
+    console.error('Load error:', e);
+    document.getElementById('updateInfo').textContent = '⚠️ 数据加载失败';
+  });
+}
+
+function renderUI() {
+  renderSourceBar();
+  switchSource(currentSource);
+}
+
+function renderSourceBar() {
+  const bar = document.getElementById('sourceBar');
+  let html = '';
+  for (const s of indexData.sources) {
+    html += '<button class="source-btn" data-src="' + s.id + '" onclick="switchSource(\'' + s.id + '\')" style="border-color:' + s.color + '40;color:' + s.color + '">'
+      + s.label + ' <span class="count">' + s.stock_count + '支</span></button>';
+  }
+  if (indexData.overlap && overlapData) {
+    html += '<button class="source-btn overlap-btn" data-src="overlap" onclick="switchSource(\'overlap\')" style="border-color:#F59E0B40;color:#F59E0B">'
+      + '🔗 共同关注 <span class="count">' + overlapData.stocks.length + '支</span></button>';
+  }
+  bar.innerHTML = html;
+  
+  const tb = document.getElementById('tabBar');
+  const tabs = [{id:'heatmap',label:'🔥 热图'},{id:'network',label:'🕸️ 关系网'},{id:'cloud',label:'☁️ 标签云'},{id:'sectors',label:'📂 行业'}];
+  tb.innerHTML = tabs.map(t => '<button class="tab-btn" data-panel="' + t.id + '" onclick="switchTab(\'' + t.id + '\')">' + t.label + '</button>').join('');
+  tb.querySelector('.tab-btn').classList.add('active');
+}
+
+function switchSource(src) {
+  currentSource = src;
+  document.querySelectorAll('.source-btn').forEach(b => b.classList.toggle('active', b.dataset.src === src));
+  
+  const tb = document.getElementById('tabBar');
+  const oldOverlap = tb.querySelector('[data-panel="overlap"]');
+  
+  if (src === 'overlap') {
+    if (!oldOverlap) {
+      const btn = document.createElement('button');
+      btn.className = 'tab-btn active';
+      btn.dataset.panel = 'overlap';
+      btn.textContent = '🔗 共同股票';
+      btn.onclick = function() { switchTab('overlap'); };
+      tb.querySelectorAll('.tab-btn').forEach(b => b.style.display = 'none');
+      tb.appendChild(btn);
+    }
+    document.getElementById('panel-overlap').classList.add('active');
+    ['panel-heatmap','panel-network','panel-cloud','panel-sectors'].forEach(function(id) {
+      document.getElementById(id).classList.remove('active');
+    });
+    renderOverlap();
+  } else {
+    tb.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.style.display = '';
+      if (b.dataset.panel === 'overlap') b.remove();
+    });
+    document.getElementById('panel-overlap').classList.remove('active');
+    
+    const data = sourceData[src];
+    document.getElementById('updateInfo').textContent = '🕐 ' + data.source_label + ' • 最后更新: ' + (data.last_updated||'').replace('T',' ');
+    
+    renderStats(data);
+    renderLegend(data);
+    renderHeatmap(data);
+    // Reset network on source switch
+    svg = null; simulation = null; gNodes = null; gLinks = null; gLinkLabels = null;
+    renderNetwork(data);
+    renderCloud(data);
+    renderSectors(data);
+    
+    const activeTab = document.querySelector('.tab-btn.active');
+    switchTab(activeTab ? activeTab.dataset.panel : 'heatmap');
+  }
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.panel === tab);
+  });
+  document.querySelectorAll('.panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  var p = document.getElementById('panel-' + tab);
+  if (p) p.classList.add('active');
+  
+  // Re-render network graph if needed
+  if (tab === 'network' && currentSource !== 'overlap') {
+    const wrap = document.getElementById('networkWrap');
+    if (!wrap.querySelector('svg')) {
+      renderNetwork(sourceData[currentSource]);
+    }
+  }
+}
+
+function renderStats(data) {
+  const bar = document.getElementById('statsBar');
+  const active = data.stocks.filter(function(s) { return s.mention_count > 0; }).length;
+  bar.innerHTML = '<div class="stat-card"><div class="num" style="color:' + (data.source_color||'#58a6ff') + '">' + data.stocks.length + '</div><div class="lbl">跟踪股票</div></div>'
+    + '<div class="stat-card"><div class="num">' + active + '</div><div class="lbl">近期提及</div></div>'
+    + '<div class="stat-card"><div class="num">' + data.relations.length + '</div><div class="lbl">行业关系</div></div>'
+    + '<div class="stat-card"><div class="num">' + (data.tweet_count||0) + '</div><div class="lbl">提及次数</div></div>';
+}
+
+function renderLegend(data) {
+  const sc = data.sector_colors || {};
+  const ig = data.industry_groups || {};
+  document.getElementById('legendHeat').innerHTML = Object.keys(sc).map(function(k) {
+    return '<span class="legend-item"><span class="dot" style="background:' + sc[k] + '"></span> ' + k + ': ' + (ig[k]||'') + '</span>';
+  }).join('');
+  
+  const rt = {supplier:'供应商',customer:'客户',peer:'同业',partner:'合作',foundry:'代工'};
+  const cc = {supplier:'#3fb950',customer:'#f0883e',peer:'#58a6ff',partner:'#6366f1',foundry:'#da3633'};
+  document.getElementById('legendNet').innerHTML = Object.keys(rt).map(function(k) {
+    return '<span class="legend-item"><span class="line" style="background:' + cc[k] + '"></span> ' + rt[k] + '</span>';
+  }).join('');
+}
+
+function renderHeatmap(data) {
+  const grid = document.getElementById('heatmapGrid');
+  const sorted = data.stocks.slice().sort(function(a,b) { return (b.heat_score||0) - (a.heat_score||0); });
+  const colors = data.sector_colors || {};
+  
+  grid.innerHTML = sorted.map(function(s) {
+    const color = colors[s.sector] || '#58a6ff';
+    const pct = Math.min((s.heat_score||0)*100, 100);
+    const prv = s.recent_tweets && s.recent_tweets[0] ? s.recent_tweets[0].text : '';
+    return '<div class="heatmap-card" onclick="showDetail(\'' + s.ticker + '\')">'
+      + '<div class="heat-bar" style="width:' + pct + '%;background:' + color + '"></div>'
+      + '<div class="heat-card-ticker" style="color:' + color + '">' + s.ticker + '</div>'
+      + '<div class="heat-card-name">' + s.name + '</div>'
+      + '<div><span class="heat-card-sector" style="background:' + color + '">' + s.sector + '</span></div>'
+      + '<div class="heat-card-meta"><span>🔥 ' + (s.heat_score||0).toFixed(2) + '</span><span>📢 ' + (s.mention_count||0) + '次</span></div>'
+      + (prv ? '<div class="heat-card-preview">"' + prv.substring(0,80) + '..."</div>' : '')
+      + '</div>';
+  }).join('');
+}
+
+function renderNetwork(data) {
+  const wrap = document.getElementById('networkWrap');
+  if (wrap.querySelector('svg')) return; // Already rendered
+  
+  const w = wrap.clientWidth || 700;
+  const h = wrap.clientHeight || 400;
+  
+  const nodesMap = {};
+  data.stocks.forEach(function(s) {
+    nodesMap[s.ticker] = {id:s.ticker, name:s.name, sector:s.sector, heat:s.heat_score||0.1, mentions:s.mention_count||0, r: Math.max(7, 7 + (s.heat_score||0)*18)};
+  });
+  data.relations.forEach(function(r) {
+    if (!nodesMap[r.source]) nodesMap[r.source] = {id:r.source,name:r.source,sector:'Other',heat:0.05,r:5,mentions:0};
+    if (!nodesMap[r.target]) nodesMap[r.target] = {id:r.target,name:r.target,sector:'Other',heat:0.05,r:5,mentions:0};
+  });
+  
+  const nodes = Object.values(nodesMap);
+  const links = data.relations.map(function(r) { return {source:r.source,target:r.target,type:r.type||'supplier',label:r.label||''}; });
+  const colors = data.sector_colors || {};
+  
+  wrap.innerHTML = '<div class="net-ctrl"><button onclick="resetNet()">↺ 重置</button><button onclick="toggleNetLabels()">🏷️ 标签</button></div>';
+  
+  svg = d3.select(wrap).append('svg').attr('viewBox',[0,0,w,h]);
+  
+  const defs = svg.append('defs');
+  const arrowColors = {supplier:'#3fb950',customer:'#f0883e',peer:'#58a6ff',partner:'#6366f1',foundry:'#da3633'};
+  Object.keys(arrowColors).forEach(function(t) {
+    defs.append('marker').attr('id','a-'+t).attr('viewBox','0 -5 10 10').attr('refX',16).attr('markerWidth',5).attr('markerHeight',5).attr('orient','auto')
+      .append('path').attr('fill',arrowColors[t]).attr('d','M0,-5L10,0L0,5');
+  });
+  
+  const zoom = d3.zoom().scaleExtent([0.1,4]).on('zoom', function(ev) { g.attr('transform', ev.transform); });
+  svg.call(zoom);
+  const g = svg.append('g');
+  
+  gLinks = g.append('g').selectAll('line').data(links).join('line')
+    .attr('stroke', function(d) { return arrowColors[d.type] || '#58a6ff'; })
+    .attr('stroke-width',1).attr('opacity',0.4).attr('marker-end',function(d) { return 'url(#a-'+d.type+')'; })
+    .attr('stroke-dasharray', function(d) { return d.type==='foundry' ? '4,3' : 'none'; });
+  
+  gLinkLabels = g.append('g').selectAll('text').data(links.filter(function(l) { return l.label; })).join('text')
+    .text(function(d) { return d.label; }).attr('font-size','6px').attr('fill','#8b949e').attr('text-anchor','middle').attr('dy',-3);
+  
+  gNodes = g.append('g').selectAll('g').data(nodes).join('g').style('cursor','pointer')
+    .call(d3.drag().on('start',function(ev,d){if(!ev.active)simulation.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+      .on('drag',function(ev,d){d.fx=ev.x;d.fy=ev.y;})
+      .on('end',function(ev,d){if(!ev.active)simulation.alphaTarget(0);d.fx=null;d.fy=null;}));
+  
+  gNodes.append('circle').attr('r',function(d) { return d.r; })
+    .attr('fill',function(d) { return colors[d.sector] || '#58a6ff'; }).attr('stroke','#fff').attr('stroke-width',1.2).attr('opacity',0.85);
+  gNodes.append('text').text(function(d) { return d.id; }).attr('text-anchor','middle').attr('dy',function(d) { return d.r+12; })
+    .attr('font-size',function(d) { return Math.max(8, d.r*0.8); }).attr('font-weight','600').attr('fill','#c9d1d9');
+  
+  gNodes.on('mouseenter',function(ev,d){
+    d3.select(this).select('circle').transition().attr('stroke-width',2.5).attr('opacity',1);
+    var tip=document.getElementById('tooltip');
+    tip.style.display='block';
+    tip.innerHTML='<strong>'+d.id+'</strong> — '+d.name+'<br>🔵 '+d.sector+'<br>🔥 '+d.heat.toFixed(2)+' • 📢 '+d.mentions+'次';
+    tip.style.left=(ev.pageX+12)+'px'; tip.style.top=(ev.pageY-8)+'px';
+  }).on('mousemove',function(ev){
+    var tip=document.getElementById('tooltip');
+    tip.style.left=(ev.pageX+12)+'px'; tip.style.top=(ev.pageY-8)+'px';
+  }).on('mouseleave',function(){
+    d3.select(this).select('circle').transition().attr('stroke-width',1.2).attr('opacity',0.85);
+    document.getElementById('tooltip').style.display='none';
+  }).on('click',function(ev,d){ showDetail(d.id); });
+  
+  simulation = d3.forceSimulation(nodes)
+    .force('link',d3.forceLink(links).id(function(d) { return d.id; }).distance(70))
+    .force('charge',d3.forceManyBody().strength(-150))
+    .force('center',d3.forceCenter(w/2,h/2))
+    .force('collision',d3.forceCollide().radius(function(d) { return d.r+8; }))
+    .on('tick',function(){
+      gLinks.attr('x1',function(d){return d.source.x;}).attr('y1',function(d){return d.source.y;}).attr('x2',function(d){return d.target.x;}).attr('y2',function(d){return d.target.y;});
+      gLinkLabels.attr('x',function(d){return (d.source.x+d.target.x)/2;}).attr('y',function(d){return (d.source.y+d.target.y)/2;});
+      gNodes.attr('transform',function(d){return 'translate('+d.x+','+d.y+')';});
+    });
+}
+
+function resetNet() { if(svg) svg.transition().duration(500).call(d3.zoom().transform, d3.zoomIdentity); }
+
+function toggleNetLabels() {
+  showNetLabels = !showNetLabels;
+  if(gNodes) gNodes.selectAll('text').attr('opacity', showNetLabels ? 1 : 0);
+  if(gLinkLabels) gLinkLabels.attr('opacity', showNetLabels ? 1 : 0);
+}
+
+function renderCloud(data) {
+  const wrap = document.getElementById('cloudWrap');
+  const sorted = data.stocks.filter(function(s) { return s.heat_score > 0.05; }).sort(function(a,b) { return (b.heat_score||0) - (a.heat_score||0); });
+  const max = Math.max.apply(null, sorted.map(function(s) { return s.heat_score||0; })) || 0.1;
+  const colors = data.sector_colors || {};
+  wrap.innerHTML = sorted.map(function(s) {
+    const size = 0.65 + (s.heat_score||0)/max*1.5;
+    const c = colors[s.sector] || '#58a6ff';
+    return '<span class="cloud-tag" style="font-size:'+size+'em;background:'+c+'22;color:'+c+';border:1px solid '+c+'44" onclick="showDetail(\''+s.ticker+'\')">'+s.ticker+'</span>';
+  }).join('');
+}
+
+function renderSectors(data) {
+  const wrap = document.getElementById('sectorWrap');
+  const sm = data.sector_summary || {};
+  const cols = data.sector_colors || {};
+  const ig = data.industry_groups || {};
+  const maxScore = Math.max.apply(null, Object.values(sm).map(function(s) { return s.total_score; })) || 1;
+  
+  wrap.innerHTML = Object.keys(sm).sort(function(a,b) { return sm[b].total_score - sm[a].total_score; }).map(function(sec) {
+    const info = sm[sec];
+    const c = cols[sec] || '#58a6ff';
+    const pct = info.total_score / maxScore * 100;
+    return '<div class="sector-row"><div class="sr-n" style="color:'+c+'"><strong>'+sec+'</strong></div><div class="sr-bar"><div class="sr-fill" style="width:'+pct+'%;background:'+c+'"></div></div><div class="sr-c">'+info.count+'支</div></div>';
+  }).join('');
+  
+  wrap.innerHTML += '<br><div style="font-size:0.78em;color:#8b949e;margin-top:8px;padding:8px;border-left:2px solid #30363d">'
+    + Object.keys(ig).map(function(k) { return '<div style="margin:3px 0"><strong>'+k+'</strong>: '+ig[k]+'</div>'; }).join('') + '</div>';
+}
+
+// ========== OVERLAP ==========
+function renderOverlap() {
+  if (!overlapData) return;
+  document.getElementById('overlapDesc').innerHTML = '两个来源<b>共同关注的股票</b>：' + overlapData.source1_label + ' ↔ ' + overlapData.source2_label;
+  
+  document.getElementById('overlapLegend').innerHTML = '<span class="legend-item"><span class="dot" style="background:'+overlapData.color1+'"></span> '+overlapData.source1_label+'</span>'
+    + '<span class="legend-item"><span class="dot" style="background:'+overlapData.color2+'"></span> '+overlapData.source2_label+'</span>';
+  
+  const sorted = overlapData.stocks.slice().sort(function(a,b) { return b.total_score - a.total_score; });
+  document.getElementById('overlapGrid').innerHTML = sorted.map(function(s) {
+    const h1 = Math.min(s.heat_score_0 * 100, 100);
+    const h2 = Math.min(s.heat_score_1 * 100, 100);
+    return '<div class="overlap-card" onclick="showOverlapDetail(\''+s.ticker+'\')">'
+      + '<div style="display:flex;justify-content:space-between;align-items:center">'
+      + '<span class="heat-card-ticker" style="color:#F59E0B">'+s.ticker+'</span>'
+      + '<span style="font-size:0.7em;color:#8b949e">🔥 '+s.total_score.toFixed(2)+'</span></div>'
+      + '<div class="heat-card-name">'+s.name+'</div>'
+      + '<div class="overlap-scores">'
+      + '<div style="flex:1"><div class="os" style="width:100%;background:#21262d"><div style="width:'+h1+'%;height:100%;background:'+overlapData.color1+';border-radius:3px"></div></div><div class="olabel">来源1</div></div>'
+      + '<div style="flex:1"><div class="os" style="width:100%;background:#21262d"><div style="width:'+h2+'%;height:100%;background:'+overlapData.color2+';border-radius:3px"></div></div><div class="olabel">来源2</div></div>'
+      + '</div></div>';
+  }).join('');
+}
+
+// ========== DETAIL MODAL ==========
+function showDetail(ticker) {
+  const data = sourceData[currentSource];
+  if (!data) return;
+  const s = data.stocks.find(function(x) { return x.ticker === ticker; });
+  if (!s) return;
+  
+  const colors = data.sector_colors || {};
+  document.getElementById('modalTicker').textContent = s.ticker;
+  document.getElementById('modalTicker').style.color = colors[s.sector] || '#58a6ff';
+  document.getElementById('modalSector').textContent = s.sector + ' > ' + s.industry + ' > ' + s.sub_industry;
+  document.getElementById('modalDesc').textContent = s.desc || '';
+  
+  const rels = data.relations.filter(function(r) { return r.source === ticker || r.target === ticker; });
+  const relEl = document.getElementById('modalRelations');
+  if (rels.length) {
+    relEl.innerHTML = '<div style="font-size:0.82em;margin:8px 0 4px;color:#58a6ff">行业关联</div>'
+      + rels.map(function(r) {
+        const isSource = r.source === ticker;
+        const other = isSource ? r.target : r.source;
+        const symb = r.type==='supplier'?'→':r.type==='customer'?'←':r.type==='foundry'?'⇒':'↔';
+        return '<div style="font-size:0.75em;color:#8b949e;padding:2px 0">'+symb+' '+other+' — '+r.label+'</div>';
+      }).join('');
+  } else {
+    relEl.innerHTML = '';
+  }
+  
+  var tweets = s.recent_tweets || [];
+  var twEl = document.getElementById('modalTweets');
+  twEl.innerHTML = tweets.length
+    ? '<div style="font-size:0.82em;margin:8px 0 4px;color:#58a6ff">相关推文</div>'
+      + tweets.map(function(t) { return '<div style="font-size:0.72em;color:#8b949e;padding:3px 0;border-top:1px solid #21262d">'+t.text.substring(0,150)+'...</div>'; }).join('')
+    : '';
+  
+  document.getElementById('modalSource').textContent = '📡 来源: ' + data.source_label;
+  document.getElementById('detailModal').classList.add('show');
+}
+
+function showOverlapDetail(ticker) {
+  if (!overlapData) return;
+  const s = overlapData.stocks.find(function(x) { return x.ticker === ticker; });
+  if (!s) return;
+  
+  document.getElementById('modalTicker').textContent = s.ticker;
+  document.getElementById('modalTicker').style.color = '#F59E0B';
+  document.getElementById('modalSector').textContent = '共同关注 · 两个来源均提及';
+  document.getElementById('modalDesc').textContent = s.desc || '';
+  
+  const rels = overlapData.relations.filter(function(r) { return r.source === ticker || r.target === ticker; });
+  const relEl = document.getElementById('modalRelations');
+  relEl.innerHTML = rels.length
+    ? '<div style="font-size:0.82em;margin:8px 0 4px;color:#F59E0B">行业关联</div>'
+      + rels.map(function(r) {
+        const isSource = r.source === ticker;
+        const other = isSource ? r.target : r.source;
+        return '<div style="font-size:0.72em;color:#8b949e;padding:2px 0">↔ '+other+' — '+r.label+'</div>';
+      }).join('')
+    : '';
+  
+  document.getElementById('modalTweets').innerHTML = '<div style="font-size:0.78em;margin-top:8px;color:#8b949e">'
+    + '<div><span class="dot" style="background:'+overlapData.color1+'"></span> 来源1: 🔥 '+s.heat_score_0+'</div>'
+    + '<div style="margin-top:4px"><span class="dot" style="background:'+overlapData.color2+'"></span> 来源2: 🔥 '+s.heat_score_1+'</div></div>';
+  document.getElementById('modalSource').textContent = '📡 两者共同关注';
+  document.getElementById('detailModal').classList.add('show');
+}
+
+function closeModal() { document.getElementById('detailModal').classList.remove('show'); }
+document.getElementById('detailModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+// ========== INIT ==========
+function startApp() { init(); }
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
+} else {
+  startApp();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "id": "aleabitoreddit",
+      "label": "@aleabitoreddit",
+      "file": "heatmap_aleabitoreddit.json",
+      "desc": "光子/半导体供应链",
+      "color": "#FF6B6B",
+      "stock_count": 31
+    },
+    {
+      "id": "leopoldasch",
+      "label": "@leopoldasch",
+      "file": "heatmap_leopoldasch.json",
+      "desc": "AI 安全/算力基建",
+      "color": "#A855F7",
+      "stock_count": 21
+    }
+  ],
+  "overlap": {
+    "file": "heatmap_overlap.json",
+    "stock_count": 8
+  },
+  "last_updated": "2026-05-28T22:46:55+08:00"
+}

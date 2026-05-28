@@ -1,0 +1,419 @@
+{
+  "stocks": [
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "desc": "AI 芯片龙头，推动 800VDC/硅光子 / AI 算力核心，GPU 垄断",
+      "sector": "共同关注",
+      "heat_score_0": 0.762,
+      "heat_score_1": 1.0,
+      "total_score": 1.762,
+      "mention_count_0": 9,
+      "mention_count_1": 10
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "desc": "Maia AI 芯片，Azure 云 / Azure 云 + OpenAI 投资",
+      "sector": "共同关注",
+      "heat_score_0": 0.287,
+      "heat_score_1": 0.715,
+      "total_score": 1.002,
+      "mention_count_0": 3,
+      "mention_count_1": 7
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "desc": "Trainium AI 芯片，最大云服务商 / AWS 云 + Trainium AI 芯片",
+      "sector": "共同关注",
+      "heat_score_0": 0.446,
+      "heat_score_1": 0.525,
+      "total_score": 0.971,
+      "mention_count_0": 5,
+      "mention_count_1": 5
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet (Google)",
+      "desc": "TPU AI 芯片，Google Cloud / DeepMind AI，TPU，AI 安全前沿",
+      "sector": "共同关注",
+      "heat_score_0": 0.208,
+      "heat_score_1": 0.62,
+      "total_score": 0.828,
+      "mention_count_0": 2,
+      "mention_count_1": 6
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms",
+      "desc": "AI 推理/数据中心建设 / Llama 开源模型，AI 研究",
+      "sector": "共同关注",
+      "heat_score_0": 0.208,
+      "heat_score_1": 0.43,
+      "total_score": 0.638,
+      "mention_count_0": 2,
+      "mention_count_1": 4
+    },
+    {
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices",
+      "desc": "AI/CPU 处理器 / AI GPU 竞争",
+      "sector": "共同关注",
+      "heat_score_0": 0.129,
+      "heat_score_1": 0.24,
+      "total_score": 0.369,
+      "mention_count_0": 1,
+      "mention_count_1": 2
+    },
+    {
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "desc": "晶圆代工/CPU / AI 芯片/代工",
+      "sector": "共同关注",
+      "heat_score_0": 0.129,
+      "heat_score_1": 0.24,
+      "total_score": 0.369,
+      "mention_count_0": 1,
+      "mention_count_1": 2
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "desc": "电动车/自动驾驶 / Dojo AI 超级计算机，自动驾驶",
+      "sector": "共同关注",
+      "heat_score_0": 0.129,
+      "heat_score_1": 0.145,
+      "total_score": 0.274,
+      "mention_count_0": 1,
+      "mention_count_1": 1
+    }
+  ],
+  "relations": [
+    {
+      "source": "AAOI",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "Trainium 光收发器 [aleabitoreddit]"
+    },
+    {
+      "source": "AAOI",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "Maia 光收发器 [aleabitoreddit]"
+    },
+    {
+      "source": "LITE",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "TPU OCS 垄断 [aleabitoreddit]"
+    },
+    {
+      "source": "LITE",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "NVDA 光互连 [aleabitoreddit]"
+    },
+    {
+      "source": "SIVE",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "硅光评估 [aleabitoreddit]"
+    },
+    {
+      "source": "XFAB",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC/硅光评估 [aleabitoreddit]"
+    },
+    {
+      "source": "NVTS",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC GaN [aleabitoreddit]"
+    },
+    {
+      "source": "POWI",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC 电源 IC [aleabitoreddit]"
+    },
+    {
+      "source": "WOLF",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "SiC 器件 [aleabitoreddit]"
+    },
+    {
+      "source": "MRVL",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "Celestial 光互连 [aleabitoreddit]"
+    },
+    {
+      "source": "MRVL",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "网络芯片 [aleabitoreddit]"
+    },
+    {
+      "source": "MU",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "HBM3E 内存 [aleabitoreddit]"
+    },
+    {
+      "source": "MU",
+      "target": "AMD",
+      "type": "supplier",
+      "label": "HBM 内存 [aleabitoreddit]"
+    },
+    {
+      "source": "LPK",
+      "target": "INTC",
+      "type": "supplier",
+      "label": "玻璃基板 [aleabitoreddit]"
+    },
+    {
+      "source": "TSLA",
+      "target": "VPG",
+      "type": "customer",
+      "label": "设计依赖 [aleabitoreddit]"
+    },
+    {
+      "source": "NVDA",
+      "target": "AMZN",
+      "type": "customer",
+      "label": "AI 云客户 [aleabitoreddit]"
+    },
+    {
+      "source": "NVDA",
+      "target": "MSFT",
+      "type": "customer",
+      "label": "AI 云客户 [aleabitoreddit]"
+    },
+    {
+      "source": "NVDA",
+      "target": "GOOGL",
+      "type": "customer",
+      "label": "AI 云客户 [aleabitoreddit]"
+    },
+    {
+      "source": "NVDA",
+      "target": "META",
+      "type": "customer",
+      "label": "AI 云客户 [aleabitoreddit]"
+    },
+    {
+      "source": "AMZN",
+      "target": "AAOI",
+      "type": "customer",
+      "label": "Trainium 采购 [aleabitoreddit]"
+    },
+    {
+      "source": "MSFT",
+      "target": "AAOI",
+      "type": "customer",
+      "label": "Maia 采购 [aleabitoreddit]"
+    },
+    {
+      "source": "NVDA",
+      "target": "MSFT",
+      "type": "partner",
+      "label": "Azure AI 算力 [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "GOOGL",
+      "type": "partner",
+      "label": "AI 算力竞争/合作 [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "AMZN",
+      "type": "partner",
+      "label": "AWS AI 算力 [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "META",
+      "type": "partner",
+      "label": "AI 研究合作 [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "ORCL",
+      "type": "partner",
+      "label": "OCI AI 集群 [leopoldasch]"
+    },
+    {
+      "source": "MSFT",
+      "target": "META",
+      "type": "partner",
+      "label": "Llama on Azure [leopoldasch]"
+    },
+    {
+      "source": "GOOGL",
+      "target": "PLTR",
+      "type": "partner",
+      "label": "AIP on GCP [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "ANET",
+      "type": "supplier",
+      "label": "网络互连依赖 [leopoldasch]"
+    },
+    {
+      "source": "NVDA",
+      "target": "VRT",
+      "type": "supplier",
+      "label": "数据中心基建 [leopoldasch]"
+    },
+    {
+      "source": "CEG",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "核电 PPA [leopoldasch]"
+    },
+    {
+      "source": "CEG",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "核电 PPA [leopoldasch]"
+    },
+    {
+      "source": "CEG",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "核电 PPA [leopoldasch]"
+    },
+    {
+      "source": "VST",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "电力协议 [leopoldasch]"
+    },
+    {
+      "source": "NRG",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "算力园区电力 [leopoldasch]"
+    },
+    {
+      "source": "TLN",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "核电数据中心 [leopoldasch]"
+    },
+    {
+      "source": "OKLO",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "小型堆试点 [leopoldasch]"
+    },
+    {
+      "source": "SMR",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "SMR 评估 [leopoldasch]"
+    },
+    {
+      "source": "NNE",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "微堆合作 [leopoldasch]"
+    },
+    {
+      "source": "AMD",
+      "target": "META",
+      "type": "partner",
+      "label": "AI 推理合作 [leopoldasch]"
+    },
+    {
+      "source": "AMD",
+      "target": "AMZN",
+      "type": "partner",
+      "label": "Trainium 竞争 [leopoldasch]"
+    },
+    {
+      "source": "INTC",
+      "target": "MSFT",
+      "type": "partner",
+      "label": "代工合作 [leopoldasch]"
+    },
+    {
+      "source": "PLTR",
+      "target": "MSFT",
+      "type": "partner",
+      "label": "AIP on Azure [leopoldasch]"
+    },
+    {
+      "source": "PLTR",
+      "target": "GOOGL",
+      "type": "partner",
+      "label": "AIP on GCP [leopoldasch]"
+    },
+    {
+      "source": "CRM",
+      "target": "NVDA",
+      "type": "partner",
+      "label": "Einstein AI [leopoldasch]"
+    },
+    {
+      "source": "CRM",
+      "target": "MSFT",
+      "type": "peer",
+      "label": "企业 AI 竞争 [leopoldasch]"
+    },
+    {
+      "source": "ANET",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "数据中心网络 [leopoldasch]"
+    },
+    {
+      "source": "ANET",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "数据中心网络 [leopoldasch]"
+    },
+    {
+      "source": "ANET",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "数据中心网络 [leopoldasch]"
+    },
+    {
+      "source": "VRT",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "散热系统 [leopoldasch]"
+    },
+    {
+      "source": "VRT",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "散热系统 [leopoldasch]"
+    },
+    {
+      "source": "TSLA",
+      "target": "NVDA",
+      "type": "customer",
+      "label": "Dojo AI 训练 [leopoldasch]"
+    },
+    {
+      "source": "ORCL",
+      "target": "NVDA",
+      "type": "partner",
+      "label": "AI 超级集群 [leopoldasch]"
+    }
+  ],
+  "source1": "aleabitoreddit",
+  "source2": "leopoldasch",
+  "source1_label": "@aleabitoreddit — WSB 交易员 / 供应链分析师",
+  "source2_label": "@leopoldasch — Leopold Aschenbrenner / AI 安全 & 算力政策",
+  "color1": "#FF6B6B",
+  "color2": "#A855F7",
+  "last_updated": "2026-05-28T22:46:55+08:00"
+}
