@@ -378,7 +378,7 @@ function renderHeatmap(data) {
       + '<div class="heat-bar" style="width:' + pct + '%;background:' + heatColor + '"></div>'
       + '<div class="heat-card-ticker" style="color:' + textColor + '">' + s.ticker + badges + '</div>'
       + '<div class="heat-card-name">' + s.name + '</div>'
-      + '<div><span class="heat-card-sector" style="background:' + sectorBg + '">' + (isShiso ? '🌿 ' : '') + (isNew ? '🆕 ' : '') + s.sector + '</span></div>'
+      + '<div><span class="heat-card-sector" style="background:' + sectorBg + '">' + s.sector + '</span></div>'
       + '<div class="heat-card-meta"><span>🔥 ' + (s.heat_score||0).toFixed(2) + '</span><span>📢 ' + (s.mention_count||0) + '次</span></div>'
       + (isShiso && s.shiso_note ? '<div style="font-size:0.65em;color:#a78bfa;margin-top:3px;padding-top:3px;border-top:1px solid #30363d">' + s.shiso_note + '</div>' : '')
       + (prv ? '<div class="heat-card-preview">"' + prv.substring(0,80) + '..."</div>' : '')
