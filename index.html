@@ -353,13 +353,13 @@ function renderHeatmap(data) {
     var isNew = s.newly_added;
     var badges = '';
     if (isShiso) badges += '<span style="font-size:0.6em;background:#581c87;color:#c084fc;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle">🌿紫苏叶</span>';
-    if (isNew) badges += '<span style="font-size:0.6em;background:#1a6b3c;color:#3fb950;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle">🆕新增</span>';
-    var borderStyle = isShiso ? 'border-color:#581c8744;' : (isNew ? 'border-color:#23863644;' : '');
+    if (isNew) badges += '<span style="font-size:0.65em;background:#b71c1c;color:#ff5252;padding:2px 8px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;border:1px solid #ff525266">🆕 NEW</span>';
+    var borderStyle = isShiso ? 'border-color:#581c8744;' : (isNew ? 'border-color:#ff525244;' : '');
     return '<div class="heatmap-card" onclick="showDetail(\'' + s.ticker + '\')" style="' + borderStyle + '">'
-      + '<div class="heat-bar" style="width:' + pct + '%;background:' + (isShiso ? '#a855f7' : isNew ? '#3fb950' : color) + '"></div>'
-      + '<div class="heat-card-ticker" style="color:' + (isShiso ? '#c084fc' : isNew ? '#3fb950' : color) + '">' + s.ticker + badges + '</div>'
+      + '<div class="heat-bar" style="width:' + pct + '%;background:' + (isShiso ? '#a855f7' : isNew ? '#ff1744' : color) + '"></div>'
+      + '<div class="heat-card-ticker" style="color:' + (isShiso ? '#c084fc' : isNew ? '#ff5252' : color) + '">' + s.ticker + badges + '</div>'
       + '<div class="heat-card-name">' + s.name + '</div>'
-      + '<div><span class="heat-card-sector" style="background:' + (isShiso ? '#581c87' : isNew ? '#1a6b3c' : color) + '">' + (isShiso ? '🌿 ' : isNew ? '🆕 ' : '') + s.sector + '</span></div>'
+      + '<div><span class="heat-card-sector" style="background:' + (isShiso ? '#581c87' : isNew ? '#b71c1c' : color) + '">' + (isShiso ? '🌿 ' : isNew ? '🔥 ' : '') + s.sector + '</span></div>'
       + '<div class="heat-card-meta"><span>🔥 ' + (s.heat_score||0).toFixed(2) + '</span><span>📢 ' + (s.mention_count||0) + '次</span></div>'
       + (isShiso && s.shiso_note ? '<div style="font-size:0.65em;color:#a78bfa;margin-top:3px;padding-top:3px;border-top:1px solid #30363d">' + s.shiso_note + '</div>' : '')
       + (prv ? '<div class="heat-card-preview">"' + prv.substring(0,80) + '..."</div>' : '')
