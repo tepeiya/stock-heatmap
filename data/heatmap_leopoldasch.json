@@ -14,7 +14,8 @@
       "desc": "AI 算力核心，GPU 垄断",
       "mention_count": 10,
       "heat_score": 1.0,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "MSFT",
@@ -26,7 +27,8 @@
       "desc": "Azure 云 + OpenAI 投资",
       "mention_count": 7,
       "heat_score": 0.715,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "GOOGL",
@@ -38,7 +40,8 @@
       "desc": "DeepMind AI，TPU，AI 安全前沿",
       "mention_count": 6,
       "heat_score": 0.62,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "AMZN",
@@ -50,7 +53,8 @@
       "desc": "AWS 云 + Trainium AI 芯片",
       "mention_count": 5,
       "heat_score": 0.525,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "META",
@@ -62,7 +66,8 @@
       "desc": "Llama 开源模型，AI 研究",
       "mention_count": 4,
       "heat_score": 0.43,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "ORCL",
@@ -74,7 +79,8 @@
       "desc": "OCI 云，AI 数据中心",
       "mention_count": 3,
       "heat_score": 0.335,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "CRM",
@@ -86,7 +92,8 @@
       "desc": "企业 AI Agent 平台",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "PLTR",
@@ -98,7 +105,8 @@
       "desc": "AI 数据分析，国防/政府合同",
       "mention_count": 3,
       "heat_score": 0.335,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "ANET",
@@ -110,7 +118,8 @@
       "desc": "数据中心网络交换机",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "VRT",
@@ -122,7 +131,8 @@
       "desc": "数据中心电源/散热基建",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "CEG",
@@ -134,7 +144,8 @@
       "desc": "核电运营商，AI 数据中心能源",
       "mention_count": 4,
       "heat_score": 0.43,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "VST",
@@ -146,7 +157,8 @@
       "desc": "电力公司，数据中心需求受益",
       "mention_count": 3,
       "heat_score": 0.335,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "NRG",
@@ -158,7 +170,8 @@
       "desc": "发电企业，AI 电力需求",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "TLN",
@@ -170,7 +183,8 @@
       "desc": "核电+数据中心园区",
       "mention_count": 3,
       "heat_score": 0.335,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "GE",
@@ -182,7 +196,8 @@
       "desc": "电网设备/燃气轮机",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "OKLO",
@@ -194,7 +209,8 @@
       "desc": "先进小型核反应堆",
       "mention_count": 3,
       "heat_score": 0.335,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "SMR",
@@ -206,7 +222,8 @@
       "desc": "小型模块化核反应堆",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "NNE",
@@ -218,7 +235,8 @@
       "desc": "微型核反应堆",
       "mention_count": 1,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "AMD",
@@ -230,7 +248,8 @@
       "desc": "AI GPU 竞争",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "INTC",
@@ -242,7 +261,8 @@
       "desc": "AI 芯片/代工",
       "mention_count": 2,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     },
     {
       "ticker": "TSLA",
@@ -254,7 +274,8 @@
       "desc": "Dojo AI 超级计算机，自动驾驶",
       "mention_count": 1,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "shiso": false
     }
   ],
   "relations": [

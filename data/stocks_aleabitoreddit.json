@@ -4,80 +4,614 @@
   "source_bio": "AI/半导体供应链分析师，光子/CPO主题",
   "source_color": "#FF6B6B",
   "stocks": [
-    {"ticker":"AAOI","name":"Applied Optoelectronics","sector":"Photonics","industry":"Optical Transceivers","sub_industry":"InP Lasers","mcap":15000000000,"desc":"光收发器/InP 激光器制造商"},
-    {"ticker":"LITE","name":"Lumentum Holdings","sector":"Photonics","industry":"Optical Components","sub_industry":"OCS/ROADM","mcap":74000000000,"desc":"光通信组件，Google TPU OCS 垄断供应商"},
-    {"ticker":"COHR","name":"Coherent Corp","sector":"Photonics","industry":"Optical Components","sub_industry":"Lasers & Photonics","mcap":73000000000,"desc":"激光器和光电子器件"},
-    {"ticker":"SIVE","name":"Sivers Semiconductors","sector":"Photonics","industry":"CPO Lasers","sub_industry":"Laser Arrays","mcap":2300000000,"desc":"CPO 激光阵列关键瓶颈，Ayar Celestial 供应商"},
-    {"ticker":"SOI","name":"Soitec","sector":"Photonics","industry":"Semiconductor Substrates","sub_industry":"SOI Substrates","mcap":10000000000,"desc":"硅光子 SOI 基板垄断"},
-    {"ticker":"IQE","name":"IQE plc","sector":"Photonics","industry":"Epitaxial Wafers","sub_industry":"Epiwafers","mcap":1500000000,"desc":"外延晶圆，下游光电子产能"},
-    {"ticker":"MTSI","name":"MACOM Technology","sector":"Photonics","industry":"Optical Components","sub_industry":"RF/Optical","mcap":29000000000,"desc":"射频和光电子半导体"},
-    {"ticker":"POET","name":"POET Technologies","sector":"Photonics","industry":"Optical Interconnect","sub_industry":"Optical Engines","mcap":500000000,"desc":"光互连/光学引擎"},
-    {"ticker":"FOCI","name":"FOCI Fiber Optic","sector":"Photonics","industry":"Optical Components","sub_industry":"Fiber Optics","mcap":500000000,"desc":"光纤光学组件"},
-    {"ticker":"AXTI","name":"AXT Inc","sector":"Photonics","industry":"Substrate Materials","sub_industry":"InP/GaAs Substrates","mcap":500000000,"desc":"磷化铟/砷化镓基板材料"},
-    {"ticker":"SHUNSIN","name":"Shunsin Technology","sector":"Photonics","industry":"Optical Modules","sub_industry":"Optical Packaging","mcap":1000000000,"desc":"光模块封装，Innolight 供应链"},
-    {"ticker":"NVDA","name":"NVIDIA","sector":"Semiconductors","industry":"GPU/AI Chips","sub_industry":"AI Accelerators","mcap":4000000000000,"desc":"AI 芯片龙头，推动 800VDC/硅光子"},
-    {"ticker":"AMD","name":"Advanced Micro Devices","sector":"Semiconductors","industry":"GPU/AI Chips","sub_industry":"AI Accelerators","mcap":250000000000,"desc":"AI/CPU 处理器"},
-    {"ticker":"MU","name":"Micron Technology","sector":"Semiconductors","industry":"Memory","sub_industry":"DRAM/NAND","mcap":1000000000000,"desc":"内存龙头，HBM 关键供应商"},
-    {"ticker":"INTC","name":"Intel Corporation","sector":"Semiconductors","industry":"CPU/Foundry","sub_industry":"Advanced Manufacturing","mcap":100000000000,"desc":"晶圆代工/CPU"},
-    {"ticker":"MRVL","name":"Marvell Technology","sector":"Semiconductors","industry":"Networking","sub_industry":"DPU/Interconnect","mcap":80000000000,"desc":"数据中心网络/DPU，Celestial 光互连"},
-    {"ticker":"NVTS","name":"Navitas Semiconductor","sector":"Semiconductors","industry":"Power Semis","sub_industry":"GaN/SiC","mcap":3000000000,"desc":"氮化镓功率半导体，800VDC 受益"},
-    {"ticker":"POWI","name":"Power Integrations","sector":"Semiconductors","industry":"Power Semis","sub_industry":"High-Voltage IC","mcap":4000000000,"desc":"高压电源 IC，800VDC 受益"},
-    {"ticker":"WOLF","name":"Wolfspeed","sector":"Semiconductors","industry":"Power Semis","sub_industry":"SiC Substrates","mcap":3000000000,"desc":"碳化硅衬底/功率器件"},
-    {"ticker":"XFAB","name":"X-FAB Silicon Foundries","sector":"Semiconductors","industry":"Foundry","sub_industry":"SiC/GaN/Power","mcap":1500000000,"desc":"美国唯一高量产 SiC 代工厂，硅光制造"},
-    {"ticker":"RPI","name":"Raspberry Pi Holdings","sector":"Semiconductors","industry":"Edge Computing","sub_industry":"Single-Board Computers","mcap":2000000000,"desc":"边缘 AI 硬件需求受益"},
-    {"ticker":"LPK","name":"LPKF Laser & Electronics","sector":"Semiconductors","industry":"Manufacturing Equipment","sub_industry":"Glass Substrates","mcap":500000000,"desc":"玻璃基板激光加工近乎垄断"},
-    {"ticker":"ALRIB","name":"Alight Inc","sector":"Semiconductors","industry":"Quantum/Photonics","sub_industry":"Quantum Buyers","mcap":1000000000,"desc":"量子计算+光电子双寡头"},
-    {"ticker":"VPG","name":"Vishay Precision Group","sector":"Semiconductors","industry":"Precision Components","sub_industry":"Sensors/Resistors","mcap":500000000,"desc":"精密传感器/电阻器"},
-    {"ticker":"AMZN","name":"Amazon","sector":"Tech Giants","industry":"Cloud/AI","sub_industry":"Trainium ASIC","mcap":2000000000000,"desc":"Trainium AI 芯片，最大云服务商"},
-    {"ticker":"MSFT","name":"Microsoft","sector":"Tech Giants","industry":"Cloud/AI","sub_industry":"Maia ASIC","mcap":3000000000000,"desc":"Maia AI 芯片，Azure 云"},
-    {"ticker":"GOOGL","name":"Alphabet (Google)","sector":"Tech Giants","industry":"Cloud/AI","sub_industry":"TPU ASIC","mcap":2000000000000,"desc":"TPU AI 芯片，Google Cloud"},
-    {"ticker":"META","name":"Meta Platforms","sector":"Tech Giants","industry":"Cloud/AI","sub_industry":"AI Inference","mcap":1500000000000,"desc":"AI 推理/数据中心建设"},
-    {"ticker":"TSLA","name":"Tesla","sector":"Tech Giants","industry":"EV/Automotive","sub_industry":"EV Design","mcap":800000000000,"desc":"电动车/自动驾驶"},
-    {"ticker":"NBIS","name":"Nebius Group","sector":"Tech Giants","industry":"Cloud/AI","sub_industry":"AI Infrastructure","mcap":10000000000,"desc":"AI 云基础设施"},
-    {"ticker":"IREN","name":"Iris Energy","sector":"Tech Giants","industry":"Data Centers","sub_industry":"AI Compute","mcap":3000000000,"desc":"AI 数据中心/算力"}
+    {
+      "ticker": "AAOI",
+      "name": "Applied Optoelectronics",
+      "sector": "Photonics",
+      "industry": "Optical Transceivers",
+      "sub_industry": "InP Lasers",
+      "mcap": 15000000000,
+      "desc": "光收发器/InP 激光器制造商",
+      "shiso": true,
+      "shiso_note": "InP激光器美国少数供应商，上游瓶颈"
+    },
+    {
+      "ticker": "LITE",
+      "name": "Lumentum Holdings",
+      "sector": "Photonics",
+      "industry": "Optical Components",
+      "sub_industry": "OCS/ROADM",
+      "mcap": 74000000000,
+      "desc": "光通信组件，Google TPU OCS 垄断供应商",
+      "shiso": true,
+      "shiso_note": "OCS光开关近乎垄断，Google TPU唯一供应商"
+    },
+    {
+      "ticker": "COHR",
+      "name": "Coherent Corp",
+      "sector": "Photonics",
+      "industry": "Optical Components",
+      "sub_industry": "Lasers & Photonics",
+      "mcap": 73000000000,
+      "desc": "激光器和光电子器件",
+      "shiso": true,
+      "shiso_note": "激光器龙头，关键光电子器件"
+    },
+    {
+      "ticker": "SIVE",
+      "name": "Sivers Semiconductors",
+      "sector": "Photonics",
+      "industry": "CPO Lasers",
+      "sub_industry": "Laser Arrays",
+      "mcap": 2300000000,
+      "desc": "CPO 激光阵列关键瓶颈，Ayar Celestial 供应商",
+      "shiso": true,
+      "shiso_note": "CPO激光器全球关键瓶颈，仅此一家"
+    },
+    {
+      "ticker": "SOI",
+      "name": "Soitec",
+      "sector": "Photonics",
+      "industry": "Semiconductor Substrates",
+      "sub_industry": "SOI Substrates",
+      "mcap": 10000000000,
+      "desc": "硅光子 SOI 基板垄断",
+      "shiso": true,
+      "shiso_note": "SOI基板垄断，全球仅此一家"
+    },
+    {
+      "ticker": "IQE",
+      "name": "IQE plc",
+      "sector": "Photonics",
+      "industry": "Epitaxial Wafers",
+      "sub_industry": "Epiwafers",
+      "mcap": 1500000000,
+      "desc": "外延晶圆，下游光电子产能",
+      "shiso": true,
+      "shiso_note": "外延晶圆产能隐形冠军"
+    },
+    {
+      "ticker": "MTSI",
+      "name": "MACOM Technology",
+      "sector": "Photonics",
+      "industry": "Optical Components",
+      "sub_industry": "RF/Optical",
+      "mcap": 29000000000,
+      "desc": "射频和光电子半导体",
+      "shiso": true,
+      "shiso_note": "RF/光电子利基龙头"
+    },
+    {
+      "ticker": "POET",
+      "name": "POET Technologies",
+      "sector": "Photonics",
+      "industry": "Optical Interconnect",
+      "sub_industry": "Optical Engines",
+      "mcap": 500000000,
+      "desc": "光互连/光学引擎",
+      "shiso": true,
+      "shiso_note": "光引擎独特技术，上游瓶颈"
+    },
+    {
+      "ticker": "FOCI",
+      "name": "FOCI Fiber Optic",
+      "sector": "Photonics",
+      "industry": "Optical Components",
+      "sub_industry": "Fiber Optics",
+      "mcap": 500000000,
+      "desc": "光纤光学组件",
+      "shiso": true,
+      "shiso_note": "光纤组件利基供应商"
+    },
+    {
+      "ticker": "AXTI",
+      "name": "AXT Inc",
+      "sector": "Photonics",
+      "industry": "Substrate Materials",
+      "sub_industry": "InP/GaAs Substrates",
+      "mcap": 500000000,
+      "desc": "磷化铟/砷化镓基板材料",
+      "shiso": true,
+      "shiso_note": "磷化铟衬底，全球仅2-3家供应商"
+    },
+    {
+      "ticker": "SHUNSIN",
+      "name": "Shunsin Technology",
+      "sector": "Photonics",
+      "industry": "Optical Modules",
+      "sub_industry": "Optical Packaging",
+      "mcap": 1000000000,
+      "desc": "光模块封装，Innolight 供应链",
+      "shiso": true,
+      "shiso_note": "光模块封装利基"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "sector": "Semiconductors",
+      "industry": "GPU/AI Chips",
+      "sub_industry": "AI Accelerators",
+      "mcap": 4000000000000,
+      "desc": "AI 芯片龙头，推动 800VDC/硅光子",
+      "shiso": false
+    },
+    {
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices",
+      "sector": "Semiconductors",
+      "industry": "GPU/AI Chips",
+      "sub_industry": "AI Accelerators",
+      "mcap": 250000000000,
+      "desc": "AI/CPU 处理器",
+      "shiso": false
+    },
+    {
+      "ticker": "MU",
+      "name": "Micron Technology",
+      "sector": "Semiconductors",
+      "industry": "Memory",
+      "sub_industry": "DRAM/NAND",
+      "mcap": 1000000000000,
+      "desc": "内存龙头，HBM 关键供应商",
+      "shiso": false
+    },
+    {
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "sector": "Semiconductors",
+      "industry": "CPU/Foundry",
+      "sub_industry": "Advanced Manufacturing",
+      "mcap": 100000000000,
+      "desc": "晶圆代工/CPU",
+      "shiso": false
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology",
+      "sector": "Semiconductors",
+      "industry": "Networking",
+      "sub_industry": "DPU/Interconnect",
+      "mcap": 80000000000,
+      "desc": "数据中心网络/DPU，Celestial 光互连",
+      "shiso": false
+    },
+    {
+      "ticker": "NVTS",
+      "name": "Navitas Semiconductor",
+      "sector": "Semiconductors",
+      "industry": "Power Semis",
+      "sub_industry": "GaN/SiC",
+      "mcap": 3000000000,
+      "desc": "氮化镓功率半导体，800VDC 受益",
+      "shiso": true,
+      "shiso_note": "GaN功率半导体领军"
+    },
+    {
+      "ticker": "POWI",
+      "name": "Power Integrations",
+      "sector": "Semiconductors",
+      "industry": "Power Semis",
+      "sub_industry": "High-Voltage IC",
+      "mcap": 4000000000,
+      "desc": "高压电源 IC，800VDC 受益",
+      "shiso": true,
+      "shiso_note": "高压电源IC利基龙头"
+    },
+    {
+      "ticker": "WOLF",
+      "name": "Wolfspeed",
+      "sector": "Semiconductors",
+      "industry": "Power Semis",
+      "sub_industry": "SiC Substrates",
+      "mcap": 3000000000,
+      "desc": "碳化硅衬底/功率器件",
+      "shiso": true,
+      "shiso_note": "SiC衬底龙头"
+    },
+    {
+      "ticker": "XFAB",
+      "name": "X-FAB Silicon Foundries",
+      "sector": "Semiconductors",
+      "industry": "Foundry",
+      "sub_industry": "SiC/GaN/Power",
+      "mcap": 1500000000,
+      "desc": "美国唯一高量产 SiC 代工厂，硅光制造",
+      "shiso": true,
+      "shiso_note": "美国唯一高量产SiC代工厂"
+    },
+    {
+      "ticker": "RPI",
+      "name": "Raspberry Pi Holdings",
+      "sector": "Semiconductors",
+      "industry": "Edge Computing",
+      "sub_industry": "Single-Board Computers",
+      "mcap": 2000000000,
+      "desc": "边缘 AI 硬件需求受益",
+      "shiso": true,
+      "shiso_note": "边缘计算硬件利基龙头"
+    },
+    {
+      "ticker": "LPK",
+      "name": "LPKF Laser & Electronics",
+      "sector": "Semiconductors",
+      "industry": "Manufacturing Equipment",
+      "sub_industry": "Glass Substrates",
+      "mcap": 500000000,
+      "desc": "玻璃基板激光加工近乎垄断",
+      "shiso": true,
+      "shiso_note": "玻璃基板激光加工近乎垄断"
+    },
+    {
+      "ticker": "ALRIB",
+      "name": "Alight Inc",
+      "sector": "Semiconductors",
+      "industry": "Quantum/Photonics",
+      "sub_industry": "Quantum Buyers",
+      "mcap": 1000000000,
+      "desc": "量子计算+光电子双寡头",
+      "shiso": true,
+      "shiso_note": "量子+光电子双寡头"
+    },
+    {
+      "ticker": "VPG",
+      "name": "Vishay Precision Group",
+      "sector": "Semiconductors",
+      "industry": "Precision Components",
+      "sub_industry": "Sensors/Resistors",
+      "mcap": 500000000,
+      "desc": "精密传感器/电阻器",
+      "shiso": true,
+      "shiso_note": "精密传感器利基龙头"
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "sector": "Tech Giants",
+      "industry": "Cloud/AI",
+      "sub_industry": "Trainium ASIC",
+      "mcap": 2000000000000,
+      "desc": "Trainium AI 芯片，最大云服务商",
+      "shiso": false
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "sector": "Tech Giants",
+      "industry": "Cloud/AI",
+      "sub_industry": "Maia ASIC",
+      "mcap": 3000000000000,
+      "desc": "Maia AI 芯片，Azure 云",
+      "shiso": false
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet (Google)",
+      "sector": "Tech Giants",
+      "industry": "Cloud/AI",
+      "sub_industry": "TPU ASIC",
+      "mcap": 2000000000000,
+      "desc": "TPU AI 芯片，Google Cloud",
+      "shiso": false
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms",
+      "sector": "Tech Giants",
+      "industry": "Cloud/AI",
+      "sub_industry": "AI Inference",
+      "mcap": 1500000000000,
+      "desc": "AI 推理/数据中心建设",
+      "shiso": false
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "sector": "Tech Giants",
+      "industry": "EV/Automotive",
+      "sub_industry": "EV Design",
+      "mcap": 800000000000,
+      "desc": "电动车/自动驾驶",
+      "shiso": false
+    },
+    {
+      "ticker": "NBIS",
+      "name": "Nebius Group",
+      "sector": "Tech Giants",
+      "industry": "Cloud/AI",
+      "sub_industry": "AI Infrastructure",
+      "mcap": 10000000000,
+      "desc": "AI 云基础设施",
+      "shiso": false
+    },
+    {
+      "ticker": "IREN",
+      "name": "Iris Energy",
+      "sector": "Tech Giants",
+      "industry": "Data Centers",
+      "sub_industry": "AI Compute",
+      "mcap": 3000000000,
+      "desc": "AI 数据中心/算力",
+      "shiso": false
+    }
   ],
   "relations": [
-    {"source":"AAOI","target":"AMZN","type":"supplier","label":"Trainium 光收发器"},
-    {"source":"AAOI","target":"MSFT","type":"supplier","label":"Maia 光收发器"},
-    {"source":"AAOI","target":"LITE","type":"peer","label":"光电子竞争对手"},
-    {"source":"AAOI","target":"COHR","type":"peer","label":"InP 制造"},
-    {"source":"LITE","target":"GOOGL","type":"supplier","label":"TPU OCS 垄断"},
-    {"source":"LITE","target":"NVDA","type":"supplier","label":"NVDA 光互连"},
-    {"source":"LITE","target":"COHR","type":"peer","label":"光组件竞争"},
-    {"source":"SIVE","target":"NVDA","type":"supplier","label":"硅光评估"},
-    {"source":"SIVE","target":"MRVL","type":"supplier","label":"Celestial 激光阵列"},
-    {"source":"SIVE","target":"LITE","type":"peer","label":"CPO 激光器"},
-    {"source":"SIVE","target":"SHUNSIN","type":"peer","label":"CPO 供应链"},
-    {"source":"SOI","target":"SIVE","type":"supplier","label":"SOI 基板"},
-    {"source":"SOI","target":"LITE","type":"supplier","label":"SOI 基板"},
-    {"source":"XFAB","target":"NVDA","type":"supplier","label":"800VDC/硅光评估"},
-    {"source":"XFAB","target":"NVTS","type":"foundry","label":"SiC 代工"},
-    {"source":"XFAB","target":"POWI","type":"foundry","label":"SiC 代工"},
-    {"source":"NVTS","target":"NVDA","type":"supplier","label":"800VDC GaN"},
-    {"source":"POWI","target":"NVDA","type":"supplier","label":"800VDC 电源 IC"},
-    {"source":"WOLF","target":"NVDA","type":"supplier","label":"SiC 器件"},
-    {"source":"MRVL","target":"AMZN","type":"supplier","label":"Celestial 光互连"},
-    {"source":"MRVL","target":"GOOGL","type":"supplier","label":"网络芯片"},
-    {"source":"MU","target":"NVDA","type":"supplier","label":"HBM3E 内存"},
-    {"source":"MU","target":"AMD","type":"supplier","label":"HBM 内存"},
-    {"source":"AXTI","target":"AAOI","type":"supplier","label":"InP 基板"},
-    {"source":"AXTI","target":"LITE","type":"supplier","label":"InP 基板"},
-    {"source":"AXTI","target":"COHR","type":"supplier","label":"InP 基板"},
-    {"source":"IQE","target":"LITE","type":"supplier","label":"外延晶圆"},
-    {"source":"IQE","target":"COHR","type":"supplier","label":"外延晶圆"},
-    {"source":"IQE","target":"MTSI","type":"supplier","label":"通过 MTSI 投资"},
-    {"source":"LPK","target":"INTC","type":"supplier","label":"玻璃基板"},
-    {"source":"NBIS","target":"IREN","type":"peer","label":"AI 算力竞争"},
-    {"source":"TSLA","target":"VPG","type":"customer","label":"设计依赖"},
-    {"source":"FOCI","target":"SIVE","type":"peer","label":"光纤组件"},
-    {"source":"NVDA","target":"AMZN","type":"customer","label":"AI 云客户"},
-    {"source":"NVDA","target":"MSFT","type":"customer","label":"AI 云客户"},
-    {"source":"NVDA","target":"GOOGL","type":"customer","label":"AI 云客户"},
-    {"source":"NVDA","target":"META","type":"customer","label":"AI 云客户"},
-    {"source":"AMZN","target":"AAOI","type":"customer","label":"Trainium 采购"},
-    {"source":"MSFT","target":"AAOI","type":"customer","label":"Maia 采购"}
+    {
+      "source": "AAOI",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "Trainium 光收发器"
+    },
+    {
+      "source": "AAOI",
+      "target": "MSFT",
+      "type": "supplier",
+      "label": "Maia 光收发器"
+    },
+    {
+      "source": "AAOI",
+      "target": "LITE",
+      "type": "peer",
+      "label": "光电子竞争对手"
+    },
+    {
+      "source": "AAOI",
+      "target": "COHR",
+      "type": "peer",
+      "label": "InP 制造"
+    },
+    {
+      "source": "LITE",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "TPU OCS 垄断"
+    },
+    {
+      "source": "LITE",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "NVDA 光互连"
+    },
+    {
+      "source": "LITE",
+      "target": "COHR",
+      "type": "peer",
+      "label": "光组件竞争"
+    },
+    {
+      "source": "SIVE",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "硅光评估"
+    },
+    {
+      "source": "SIVE",
+      "target": "MRVL",
+      "type": "supplier",
+      "label": "Celestial 激光阵列"
+    },
+    {
+      "source": "SIVE",
+      "target": "LITE",
+      "type": "peer",
+      "label": "CPO 激光器"
+    },
+    {
+      "source": "SIVE",
+      "target": "SHUNSIN",
+      "type": "peer",
+      "label": "CPO 供应链"
+    },
+    {
+      "source": "SOI",
+      "target": "SIVE",
+      "type": "supplier",
+      "label": "SOI 基板"
+    },
+    {
+      "source": "SOI",
+      "target": "LITE",
+      "type": "supplier",
+      "label": "SOI 基板"
+    },
+    {
+      "source": "XFAB",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC/硅光评估"
+    },
+    {
+      "source": "XFAB",
+      "target": "NVTS",
+      "type": "foundry",
+      "label": "SiC 代工"
+    },
+    {
+      "source": "XFAB",
+      "target": "POWI",
+      "type": "foundry",
+      "label": "SiC 代工"
+    },
+    {
+      "source": "NVTS",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC GaN"
+    },
+    {
+      "source": "POWI",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "800VDC 电源 IC"
+    },
+    {
+      "source": "WOLF",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "SiC 器件"
+    },
+    {
+      "source": "MRVL",
+      "target": "AMZN",
+      "type": "supplier",
+      "label": "Celestial 光互连"
+    },
+    {
+      "source": "MRVL",
+      "target": "GOOGL",
+      "type": "supplier",
+      "label": "网络芯片"
+    },
+    {
+      "source": "MU",
+      "target": "NVDA",
+      "type": "supplier",
+      "label": "HBM3E 内存"
+    },
+    {
+      "source": "MU",
+      "target": "AMD",
+      "type": "supplier",
+      "label": "HBM 内存"
+    },
+    {
+      "source": "AXTI",
+      "target": "AAOI",
+      "type": "supplier",
+      "label": "InP 基板"
+    },
+    {
+      "source": "AXTI",
+      "target": "LITE",
+      "type": "supplier",
+      "label": "InP 基板"
+    },
+    {
+      "source": "AXTI",
+      "target": "COHR",
+      "type": "supplier",
+      "label": "InP 基板"
+    },
+    {
+      "source": "IQE",
+      "target": "LITE",
+      "type": "supplier",
+      "label": "外延晶圆"
+    },
+    {
+      "source": "IQE",
+      "target": "COHR",
+      "type": "supplier",
+      "label": "外延晶圆"
+    },
+    {
+      "source": "IQE",
+      "target": "MTSI",
+      "type": "supplier",
+      "label": "通过 MTSI 投资"
+    },
+    {
+      "source": "LPK",
+      "target": "INTC",
+      "type": "supplier",
+      "label": "玻璃基板"
+    },
+    {
+      "source": "NBIS",
+      "target": "IREN",
+      "type": "peer",
+      "label": "AI 算力竞争"
+    },
+    {
+      "source": "TSLA",
+      "target": "VPG",
+      "type": "customer",
+      "label": "设计依赖"
+    },
+    {
+      "source": "FOCI",
+      "target": "SIVE",
+      "type": "peer",
+      "label": "光纤组件"
+    },
+    {
+      "source": "NVDA",
+      "target": "AMZN",
+      "type": "customer",
+      "label": "AI 云客户"
+    },
+    {
+      "source": "NVDA",
+      "target": "MSFT",
+      "type": "customer",
+      "label": "AI 云客户"
+    },
+    {
+      "source": "NVDA",
+      "target": "GOOGL",
+      "type": "customer",
+      "label": "AI 云客户"
+    },
+    {
+      "source": "NVDA",
+      "target": "META",
+      "type": "customer",
+      "label": "AI 云客户"
+    },
+    {
+      "source": "AMZN",
+      "target": "AAOI",
+      "type": "customer",
+      "label": "Trainium 采购"
+    },
+    {
+      "source": "MSFT",
+      "target": "AAOI",
+      "type": "customer",
+      "label": "Maia 采购"
+    }
   ],
-  "sector_colors": {"Photonics":"#FF6B6B","Semiconductors":"#4ECDC4","Tech Giants":"#45B7D1"},
-  "industry_groups": {"Photonics":"光学/光电子 — CPO、光收发器、激光器、基板、外延","Semiconductors":"半导体 — GPU/CPU、内存、功率器件、代工、设备","Tech Giants":"科技巨头 — 云/AI 芯片采购方、数据中心"},
-  "ticker_mentions": {"SIVE":12,"NVDA":9,"XFAB":8,"LITE":6,"AAOI":5,"SOI":5,"NVTS":5,"AMZN":5,"IQE":4,"AXTI":4,"MRVL":4,"MSFT":3,"COHR":3,"POWI":3,"WOLF":3,"MTSI":2,"GOOGL":2,"META":2,"NOK":2,"MU":2,"POET":1,"FOCI":1,"AMD":1,"INTC":1,"RPI":1,"LPK":1,"ALRIB":1,"TSLA":1,"NBIS":1,"IREN":1,"VPG":1,"SHUNSIN":1}
+  "sector_colors": {
+    "Photonics": "#FF6B6B",
+    "Semiconductors": "#4ECDC4",
+    "Tech Giants": "#45B7D1"
+  },
+  "industry_groups": {
+    "Photonics": "光学/光电子 — CPO、光收发器、激光器、基板、外延",
+    "Semiconductors": "半导体 — GPU/CPU、内存、功率器件、代工、设备",
+    "Tech Giants": "科技巨头 — 云/AI 芯片采购方、数据中心"
+  },
+  "ticker_mentions": {
+    "SIVE": 12,
+    "NVDA": 9,
+    "XFAB": 8,
+    "LITE": 6,
+    "AAOI": 5,
+    "SOI": 5,
+    "NVTS": 5,
+    "AMZN": 5,
+    "IQE": 4,
+    "AXTI": 4,
+    "MRVL": 4,
+    "MSFT": 3,
+    "COHR": 3,
+    "POWI": 3,
+    "WOLF": 3,
+    "MTSI": 2,
+    "GOOGL": 2,
+    "META": 2,
+    "NOK": 2,
+    "MU": 2,
+    "POET": 1,
+    "FOCI": 1,
+    "AMD": 1,
+    "INTC": 1,
+    "RPI": 1,
+    "LPK": 1,
+    "ALRIB": 1,
+    "TSLA": 1,
+    "NBIS": 1,
+    "IREN": 1,
+    "VPG": 1,
+    "SHUNSIN": 1
+  }
 }
