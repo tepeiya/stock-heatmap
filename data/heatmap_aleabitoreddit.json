@@ -522,7 +522,8 @@
       "mcap": 0,
       "mention_count": 6,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "AVGO",
@@ -535,7 +536,8 @@
       "mcap": 0,
       "mention_count": 6,
       "heat_score": 0.24,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "AAPL",
@@ -548,7 +550,8 @@
       "mcap": 0,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "DELL",
@@ -561,7 +564,8 @@
       "mcap": 0,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "RKLB",
@@ -574,7 +578,8 @@
       "mcap": 0,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "CRM",
@@ -587,7 +592,8 @@
       "mcap": 0,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     },
     {
       "ticker": "SNDK",
@@ -600,7 +606,8 @@
       "mcap": 0,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": true
     }
   ],
   "relations": [
