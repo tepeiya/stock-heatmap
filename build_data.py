@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build heatmap data for multiple sources."""
 import json, os, sys, time, random
+from datetime import datetime, timezone, timedelta
 
 DATA_DIR = "/var/minis/workspace/stock-heatmap/data"
 SOURCES = ["aleabitoreddit", "leopoldasch"]
@@ -10,6 +11,19 @@ def load_source(source):
         d = json.load(f)
     
     # Set mention counts and heat scores
+    # Auto-expire NEW tags (>1 day)
+    bjt = timezone(timedelta(hours=8))
+    now = datetime.now(bjt)
+    if 'newly_added_dates' in d:
+        for ticker in list(d['newly_added_dates'].keys()):
+            added = d['newly_added_dates'][ticker]
+            try:
+                dt = datetime.strptime(added, '%Y-%m-%d')
+                days_old = (now - dt.replace(tzinfo=bjt)).days
+                if days_old >= 1:
+                    del d['newly_added_dates'][ticker]
+            except: pass
+    
     ticker_mentions = d.get("ticker_mentions", {})
     max_count = max(ticker_mentions.values()) if ticker_mentions else 1
     

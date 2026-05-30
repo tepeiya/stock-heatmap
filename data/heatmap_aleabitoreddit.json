@@ -35,7 +35,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "LITE",
@@ -56,7 +57,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "COHR",
@@ -70,7 +72,8 @@
       "shiso_note": "激光器龙头，关键光电子器件",
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "SIVE",
@@ -103,7 +106,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "SOI",
@@ -117,7 +121,8 @@
       "shiso_note": "SOI基板垄断，全球仅此一家",
       "mention_count": 5,
       "heat_score": 0.208,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "IQE",
@@ -131,7 +136,8 @@
       "shiso_note": "外延晶圆产能隐形冠军",
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "MTSI",
@@ -145,7 +151,8 @@
       "shiso_note": "RF/光电子利基龙头",
       "mention_count": 2,
       "heat_score": 0.113,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "POET",
@@ -159,7 +166,8 @@
       "shiso_note": "光引擎独特技术，上游瓶颈",
       "mention_count": 1,
       "heat_score": 0.082,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "FOCI",
@@ -186,7 +194,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "AXTI",
@@ -200,7 +209,8 @@
       "shiso_note": "磷化铟衬底，全球仅2-3家供应商",
       "mention_count": 7,
       "heat_score": 0.272,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "SHUNSIN",
@@ -227,7 +237,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "NVDA",
@@ -247,7 +258,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "AMD",
@@ -260,7 +272,8 @@
       "shiso": false,
       "mention_count": 7,
       "heat_score": 0.272,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "MU",
@@ -273,7 +286,8 @@
       "shiso": false,
       "mention_count": 2,
       "heat_score": 0.113,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "INTC",
@@ -286,7 +300,8 @@
       "shiso": false,
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "MRVL",
@@ -299,7 +314,8 @@
       "shiso": false,
       "mention_count": 7,
       "heat_score": 0.272,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "NVTS",
@@ -313,7 +329,8 @@
       "shiso_note": "GaN功率半导体领军",
       "mention_count": 5,
       "heat_score": 0.208,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "POWI",
@@ -327,7 +344,8 @@
       "shiso_note": "高压电源IC利基龙头",
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "WOLF",
@@ -341,7 +359,8 @@
       "shiso_note": "SiC衬底龙头",
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "XFAB",
@@ -362,7 +381,8 @@
           "time": "latest",
           "likes": "100"
         }
-      ]
+      ],
+      "newly_added": false
     },
     {
       "ticker": "RPI",
@@ -376,7 +396,8 @@
       "shiso_note": "边缘计算硬件利基龙头",
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "LPK",
@@ -390,7 +411,8 @@
       "shiso_note": "玻璃基板激光加工近乎垄断",
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "ALRIB",
@@ -404,7 +426,8 @@
       "shiso_note": "量子+光电子双寡头",
       "mention_count": 1,
       "heat_score": 0.082,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "VPG",
@@ -418,7 +441,8 @@
       "shiso_note": "精密传感器利基龙头",
       "mention_count": 1,
       "heat_score": 0.082,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "AMZN",
@@ -431,7 +455,8 @@
       "shiso": false,
       "mention_count": 5,
       "heat_score": 0.208,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "MSFT",
@@ -444,7 +469,8 @@
       "shiso": false,
       "mention_count": 3,
       "heat_score": 0.145,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "GOOGL",
@@ -457,7 +483,8 @@
       "shiso": false,
       "mention_count": 2,
       "heat_score": 0.113,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "META",
@@ -470,7 +497,8 @@
       "shiso": false,
       "mention_count": 2,
       "heat_score": 0.113,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "TSLA",
@@ -483,7 +511,8 @@
       "shiso": false,
       "mention_count": 1,
       "heat_score": 0.082,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "NBIS",
@@ -496,7 +525,8 @@
       "shiso": false,
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "IREN",
@@ -509,7 +539,8 @@
       "shiso": false,
       "mention_count": 4,
       "heat_score": 0.177,
-      "recent_tweets": []
+      "recent_tweets": [],
+      "newly_added": false
     },
     {
       "ticker": "JBL",
@@ -969,5 +1000,5 @@
     }
   },
   "tweet_count": 227,
-  "last_updated": "2026-05-30T23:15:59+08:00"
+  "last_updated": "2026-05-30T23:34:55+08:00"
 }
