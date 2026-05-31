@@ -6,7 +6,7 @@
       "file": "heatmap_aleabitoreddit.json",
       "desc": "光子/半导体供应链",
       "color": "#FF6B6B",
-      "stock_count": 38
+      "stock_count": 41
     },
     {
       "id": "leopoldasch",
@@ -21,5 +21,5 @@
     "file": "heatmap_overlap.json",
     "stock_count": 8
   },
-  "last_updated": "2026-05-30T23:34:55+08:00"
+  "last_updated": "2026-05-31T20:23:48+08:00"
 }
