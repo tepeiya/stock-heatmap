@@ -15,7 +15,7 @@
       "shiso": true,
       "shiso_note": "InP激光器美国少数供应商，上游瓶颈",
       "mention_count": 26,
-      "heat_score": 0.565,
+      "heat_score": 0.544,
       "recent_tweets": [
         {
           "text": "I'm actually even more bullish on $AAOI at $13B MC given laser bottlenecks",
@@ -49,7 +49,7 @@
       "shiso": true,
       "shiso_note": "OCS光开关近乎垄断，Google TPU唯一供应商",
       "mention_count": 15,
-      "heat_score": 0.347,
+      "heat_score": 0.335,
       "recent_tweets": [
         {
           "text": "$SIVE vs $LITE competition - turns out Sivers is primary supplier for Ayar",
@@ -71,7 +71,7 @@
       "shiso": true,
       "shiso_note": "激光器龙头，关键光电子器件",
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -85,7 +85,7 @@
       "desc": "CPO 激光阵列关键瓶颈，Ayar Celestial 供应商",
       "shiso": true,
       "shiso_note": "CPO激光器全球关键瓶颈，仅此一家",
-      "mention_count": 48,
+      "mention_count": 50,
       "heat_score": 1.0,
       "recent_tweets": [
         {
@@ -119,8 +119,8 @@
       "desc": "硅光子 SOI 基板垄断",
       "shiso": true,
       "shiso_note": "SOI基板垄断，全球仅此一家",
-      "mention_count": 5,
-      "heat_score": 0.149,
+      "mention_count": 6,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -134,8 +134,8 @@
       "desc": "外延晶圆，下游光电子产能",
       "shiso": true,
       "shiso_note": "外延晶圆产能隐形冠军",
-      "mention_count": 6,
-      "heat_score": 0.169,
+      "mention_count": 7,
+      "heat_score": 0.183,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -150,7 +150,7 @@
       "shiso": true,
       "shiso_note": "RF/光电子利基龙头",
       "mention_count": 2,
-      "heat_score": 0.09,
+      "heat_score": 0.088,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -165,7 +165,7 @@
       "shiso": true,
       "shiso_note": "光引擎独特技术，上游瓶颈",
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -180,7 +180,7 @@
       "shiso": true,
       "shiso_note": "光纤组件利基供应商",
       "mention_count": 8,
-      "heat_score": 0.208,
+      "heat_score": 0.202,
       "recent_tweets": [
         {
           "text": "Foci - $NVDA/$TSM FAU supplier and bottleneck for COUPE. Only $2.8B?",
@@ -208,7 +208,7 @@
       "shiso": true,
       "shiso_note": "磷化铟衬底，全球仅2-3家供应商",
       "mention_count": 7,
-      "heat_score": 0.189,
+      "heat_score": 0.183,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -223,7 +223,7 @@
       "shiso": true,
       "shiso_note": "光模块封装利基",
       "mention_count": 12,
-      "heat_score": 0.287,
+      "heat_score": 0.278,
       "recent_tweets": [
         {
           "text": "Foxconn CPO switch products Q3 2026 - who handles the work? Shunsin (6451)",
@@ -250,7 +250,7 @@
       "desc": "AI 芯片龙头，推动 800VDC/硅光子",
       "shiso": false,
       "mention_count": 34,
-      "heat_score": 0.723,
+      "heat_score": 0.696,
       "recent_tweets": [
         {
           "text": "$NVDA pushing 800vdc, SiC/GaN foundries go brr",
@@ -271,7 +271,7 @@
       "desc": "AI/CPU 处理器",
       "shiso": false,
       "mention_count": 10,
-      "heat_score": 0.248,
+      "heat_score": 0.24,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -285,7 +285,7 @@
       "desc": "内存龙头，HBM 关键供应商",
       "shiso": false,
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -299,7 +299,7 @@
       "desc": "晶圆代工/CPU",
       "shiso": false,
       "mention_count": 4,
-      "heat_score": 0.129,
+      "heat_score": 0.126,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -313,7 +313,7 @@
       "desc": "数据中心网络/DPU，Celestial 光互连",
       "shiso": false,
       "mention_count": 20,
-      "heat_score": 0.446,
+      "heat_score": 0.43,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -328,7 +328,7 @@
       "shiso": true,
       "shiso_note": "GaN功率半导体领军",
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -343,7 +343,7 @@
       "shiso": true,
       "shiso_note": "高压电源IC利基龙头",
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -358,7 +358,7 @@
       "shiso": true,
       "shiso_note": "SiC衬底龙头",
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -372,8 +372,8 @@
       "desc": "美国唯一高量产 SiC 代工厂，硅光制造",
       "shiso": true,
       "shiso_note": "美国唯一高量产SiC代工厂",
-      "mention_count": 22,
-      "heat_score": 0.485,
+      "mention_count": 24,
+      "heat_score": 0.506,
       "recent_tweets": [
         {
           "text": "$XFAB central to EU CHIPS act 2 for silicon photonics at $1.5B MC",
@@ -395,7 +395,7 @@
       "shiso": true,
       "shiso_note": "边缘计算硬件利基龙头",
       "mention_count": 4,
-      "heat_score": 0.129,
+      "heat_score": 0.126,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -410,7 +410,7 @@
       "shiso": true,
       "shiso_note": "玻璃基板激光加工近乎垄断",
       "mention_count": 5,
-      "heat_score": 0.149,
+      "heat_score": 0.145,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -425,7 +425,7 @@
       "shiso": true,
       "shiso_note": "量子+光电子双寡头",
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -440,7 +440,7 @@
       "shiso": true,
       "shiso_note": "精密传感器利基龙头",
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -454,7 +454,7 @@
       "desc": "Trainium AI 芯片，最大云服务商",
       "shiso": false,
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -468,7 +468,7 @@
       "desc": "Maia AI 芯片，Azure 云",
       "shiso": false,
       "mention_count": 7,
-      "heat_score": 0.189,
+      "heat_score": 0.183,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -482,7 +482,7 @@
       "desc": "TPU AI 芯片，Google Cloud",
       "shiso": false,
       "mention_count": 2,
-      "heat_score": 0.09,
+      "heat_score": 0.088,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -496,7 +496,7 @@
       "desc": "AI 推理/数据中心建设",
       "shiso": false,
       "mention_count": 2,
-      "heat_score": 0.09,
+      "heat_score": 0.088,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -510,7 +510,7 @@
       "desc": "电动车/自动驾驶",
       "shiso": false,
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -524,7 +524,7 @@
       "desc": "AI 云基础设施",
       "shiso": false,
       "mention_count": 7,
-      "heat_score": 0.189,
+      "heat_score": 0.183,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -538,7 +538,7 @@
       "desc": "AI 数据中心/算力",
       "shiso": false,
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -552,7 +552,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -566,7 +566,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 8,
-      "heat_score": 0.208,
+      "heat_score": 0.202,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -580,7 +580,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 6,
-      "heat_score": 0.169,
+      "heat_score": 0.164,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -594,7 +594,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -608,7 +608,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -622,7 +622,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -636,7 +636,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -650,7 +650,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -664,7 +664,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -678,7 +678,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 3,
-      "heat_score": 0.109,
+      "heat_score": 0.107,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -692,7 +692,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 2,
-      "heat_score": 0.09,
+      "heat_score": 0.088,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -706,7 +706,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -720,7 +720,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": false
     },
@@ -734,7 +734,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": true
     },
@@ -748,7 +748,7 @@
       "shiso": false,
       "mcap": 0,
       "mention_count": 1,
-      "heat_score": 0.07,
+      "heat_score": 0.069,
       "recent_tweets": [],
       "newly_added": true
     }
@@ -1111,7 +1111,7 @@
     "VPG": 1,
     "SHUNSIN": 1
   },
-  "last_updated": "2026-06-03T21:23:38+08:00",
+  "last_updated": "2026-06-03T22:28:04+08:00",
   "newly_added_dates": {
     "AEHR": "2026-06-03",
     "CRWV": "2026-06-03"
